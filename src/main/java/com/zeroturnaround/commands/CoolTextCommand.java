@@ -10,6 +10,8 @@ public class CoolTextCommand implements Command {
   public String execute(String cmdStr) {
     if (cmdStr.toLowerCase().equals("tom"))
       return "Toomas is cool!";
+    else if (cmdStr.toLowerCase().equals("kevin"))
+      return "Kevin is cool!";
     else
       return cmdStr + " is not as cool";
   }
