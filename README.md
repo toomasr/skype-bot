@@ -16,6 +16,7 @@ Running the software
 --------------------
 
 You will need:
+
  * skype username/password
  * join skype developer program for 10 USD at http://developer.skype.com
  * create an application at http://developer.skype.com 
