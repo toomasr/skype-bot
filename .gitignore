@@ -2,3 +2,4 @@ personal.properties
 target
 .classpath
 .settings
+rebel.xml
