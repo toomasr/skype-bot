@@ -1,6 +1,7 @@
 package com.zeroturnaround;
 
-public class SkypeUser {
-  public static String userName;
-  public static String password;
+public class Configuration {
+  public static String skypeUsername;
+  public static String skypePassword;
+  public static String pemFile;
 }

@@ -69,7 +69,7 @@ public class SkypeEngine extends Thread {
     X509Certificate cert;
     PrivateKey privateKey;
     try {
-      certAsPem = new PemReader("etc/toomas-mac.pem");
+      certAsPem = new PemReader(Configuration.pemFile);
       cert = certAsPem.getCertificate();
       privateKey = certAsPem.getKey();
     }
@@ -104,8 +104,8 @@ public class SkypeEngine extends Thread {
         String version = skype_instance.GetVersionString();
         log.debug("Skype version " + version);
 
-        Account account = skype_instance.GetAccount(SkypeUser.userName);
-        account.LoginWithPassword(SkypeUser.password, false, true);
+        Account account = skype_instance.GetAccount(Configuration.skypeUsername);
+        account.LoginWithPassword(Configuration.skypePassword, false, true);
       }
     }
     catch (IOException e) {

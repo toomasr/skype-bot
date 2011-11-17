@@ -43,7 +43,8 @@ public class ZTChatBot {
       throw new RuntimeException("Unable to read properties file " + propsFile.getAbsolutePath(), e);
     }
 
-    SkypeUser.userName = props.getProperty("username", "");
-    SkypeUser.password = props.getProperty("password", "");
+    Configuration.skypeUsername = props.getProperty("username", "");
+    Configuration.skypePassword = props.getProperty("password", "");
+    Configuration.pemFile = props.getProperty("pemfile", "");
   }
 }

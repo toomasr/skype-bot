@@ -74,8 +74,8 @@ public class SkypeGlobalListener implements MessageListener, SkypeListener, Conv
 
     // ignore the processing of our own messages to avoid
     // indefinite loop
-    if (SkypeUser.userName.equals(author)) {
-      log.debug("Ignoring command because it is from " + SkypeUser.userName);
+    if (Configuration.skypeUsername.equals(author)) {
+      log.debug("Ignoring command because it is from " + Configuration.skypeUsername);
       return;
     }
 
