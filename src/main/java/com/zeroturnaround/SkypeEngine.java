@@ -44,7 +44,7 @@ public class SkypeEngine extends Thread {
       log.debug("Skype thread hickup", e);
     }
     finally {
-      ZTChatBot.stop();
+      SkypeChatBot.stop();
     }
   }
 
