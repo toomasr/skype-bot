@@ -1,10 +1,12 @@
-package com.zeroturnaround;
+package org.zeroturnaround;
 
 import java.util.HashMap;
 import java.util.Map;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.zeroturnaround.commands.Command;
+import org.zeroturnaround.commands.CommandFactory;
 
 import com.skype.api.Contact;
 import com.skype.api.ContactGroup;
@@ -18,8 +20,6 @@ import com.skype.api.Skype.PROXYTYPE;
 import com.skype.api.Skype.SkypeListener;
 import com.skype.api.SkypeObject;
 import com.skype.ipc.RootObject.ErrorListener;
-import com.zeroturnaround.commands.Command;
-import com.zeroturnaround.commands.CommandFactory;
 
 public class SkypeGlobalListener implements MessageListener, SkypeListener, ConversationListener, ErrorListener {
   private static final String BOT_MSG_PREFIX = "zt-bot:";
@@ -67,8 +67,8 @@ public class SkypeGlobalListener implements MessageListener, SkypeListener, Conv
     String conversationStr = conversation.GetStrProperty(Conversation.PROPERTY.displayname);
     conversations.put(conversationStr, conversation);
     String identity = conversation.GetStrProperty(Conversation.PROPERTY.identity);
-    log.info("convo display name = "+conversationStr);
-    log.info("convo identity = "+identity);
+    log.info("convo display name = " + conversationStr);
+    log.info("convo identity = " + identity);
 
     String msgStr = message.GetStrProperty(Message.PROPERTY.body_xml);
 
@@ -149,7 +149,7 @@ public class SkypeGlobalListener implements MessageListener, SkypeListener, Conv
   }
 
   public static void postToChat(String chatName, String message) {
-    log.debug("PostToChat="+chatName);
+    log.debug("PostToChat=" + chatName);
     Conversation convo = conversations.get(chatName);
     if (convo != null) {
       log.debug("Found the conversation, posting");

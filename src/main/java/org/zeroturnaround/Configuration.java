@@ -1,4 +1,4 @@
-package com.zeroturnaround;
+package org.zeroturnaround;
 
 public class Configuration {
   public static String skypeUsername;

@@ -1,4 +1,4 @@
-package com.zeroturnaround.commands;
+package org.zeroturnaround.commands;
 
 import com.google.gag.annotation.disclaimer.HandsOff;
 import com.google.gag.enumeration.Consequence;

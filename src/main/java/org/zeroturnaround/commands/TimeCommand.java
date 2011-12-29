@@ -1,4 +1,4 @@
-package com.zeroturnaround.commands;
+package org.zeroturnaround.commands;
 
 import java.text.DateFormat;
 import java.util.Date;

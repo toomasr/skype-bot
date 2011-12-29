@@ -1,4 +1,4 @@
-package com.zeroturnaround.commands;
+package org.zeroturnaround.commands;
 
 import java.util.HashMap;
 import java.util.Map;

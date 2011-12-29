@@ -1,4 +1,4 @@
-package com.zeroturnaround.web;
+package org.zeroturnaround.web;
 
 import org.eclipse.jetty.server.Server;
 

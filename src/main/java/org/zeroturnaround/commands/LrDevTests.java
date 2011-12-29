@@ -1,4 +1,4 @@
-package com.zeroturnaround.commands;
+package org.zeroturnaround.commands;
 
 import java.util.ArrayList;
 import java.util.List;

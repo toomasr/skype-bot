@@ -1,4 +1,4 @@
-package com.zeroturnaround;
+package org.zeroturnaround;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -8,8 +8,7 @@ import java.util.Properties;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-import com.zeroturnaround.web.WebServer;
+import org.zeroturnaround.web.WebServer;
 
 public class SkypeChatBot {
   private static final Logger log = LoggerFactory.getLogger(SkypeChatBot.class);

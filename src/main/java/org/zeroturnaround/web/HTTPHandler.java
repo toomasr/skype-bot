@@ -1,4 +1,4 @@
-package com.zeroturnaround.web;
+package org.zeroturnaround.web;
 
 import java.io.IOException;
 
@@ -8,8 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.eclipse.jetty.server.Request;
 import org.eclipse.jetty.server.handler.AbstractHandler;
-
-import com.zeroturnaround.SkypeEngine;
+import org.zeroturnaround.SkypeEngine;
 
 public class HTTPHandler extends AbstractHandler {
 

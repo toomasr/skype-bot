@@ -1,4 +1,4 @@
-package com.zeroturnaround;
+package org.zeroturnaround;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
