@@ -89,7 +89,7 @@
           <archive>
             <index>true</index>
             <manifestEntries>
-              <Main-Class>com.zeroturnaround.ZTChatBot</Main-Class>
+              <Main-Class>org.zeroturnaround.SkypeChatBot</Main-Class>
             </manifestEntries>
             <addMavenDescriptor>false</addMavenDescriptor>
           </archive>
