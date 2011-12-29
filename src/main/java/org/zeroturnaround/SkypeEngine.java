@@ -69,6 +69,7 @@ public class SkypeEngine extends Thread {
     X509Certificate cert;
     PrivateKey privateKey;
     try {
+      log.debug("Using pem file " + Configuration.pemFile);
       certAsPem = new PemReader(Configuration.pemFile);
       cert = certAsPem.getCertificate();
       privateKey = certAsPem.getKey();
