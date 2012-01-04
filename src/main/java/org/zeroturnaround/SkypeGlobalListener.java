@@ -22,7 +22,7 @@ import com.skype.api.SkypeObject;
 import com.skype.ipc.RootObject.ErrorListener;
 
 public class SkypeGlobalListener implements MessageListener, SkypeListener, ConversationListener, ErrorListener {
-  private static final String BOT_MSG_PREFIX = "zt-bot:";
+  private static final String BOT_MSG_PREFIX = "bot:";
   private static final Logger log = LoggerFactory.getLogger(SkypeGlobalListener.class);
   private static Map<String, Conversation> conversations = new HashMap<String, Conversation>();
 
