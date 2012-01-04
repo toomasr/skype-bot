@@ -23,7 +23,7 @@
 
   <dependencies>
     <dependency>
-      <groupId>skype</groupId>
+      <groupId>com.skype</groupId>
       <artifactId>skype-sdk</artifactId>
       <version>1.0</version>
       <type>jar</type>

@@ -131,7 +131,7 @@ public class SkypeGlobalListener implements MessageListener, SkypeListener, Conv
 
   @Override
   public void OnMessage(SkypeObject obj, Message message) {
-    System.out.println("OnMessage" + obj + message);
+    log.debug("OnMessage" + obj + message);
   }
 
   @Override
@@ -140,12 +140,12 @@ public class SkypeGlobalListener implements MessageListener, SkypeListener, Conv
 
   @Override
   public void OnSkypeKitFatalError() {
-    System.out.println("OnSkypeKitFatalError");
+    log.debug("OnSkypeKitFatalError");
   }
 
   @Override
   public void OnSkypeKitConnectionClosed() {
-    System.out.println("SkypeKitConnectionClosed");
+    log.debug("OnSkypeKitConnectionClosed");
   }
 
   public static void postToChat(String chatName, String message) {
@@ -155,5 +155,10 @@ public class SkypeGlobalListener implements MessageListener, SkypeListener, Conv
       log.debug("Found the conversation, posting");
       convo.PostText(message, false);
     }
+  }
+
+  @Override
+  public void OnH264Activated() {
+    log.debug("OnH264Activated");
   }
 }
