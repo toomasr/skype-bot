@@ -94,6 +94,7 @@ public class SkypeEngine extends Thread {
 
     try {
       skype_instance.Init(transport);
+      skype_instance.Start();
     }
     catch (IOException e) {
       throw new RuntimeException(e);
