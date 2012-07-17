@@ -26,4 +26,4 @@ You will need:
 Most configuration can be done by copying project.properties to personal.properties
 and making changes there.
 
-If you have any questions just drop me a line @toomasr
+If you have any questions just drop me a line [@toomasr](http://twitter.com/#!/toomasr)
