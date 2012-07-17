@@ -3,8 +3,8 @@ Skype Bot
 Getting started tutorial
 -----------------------
 
-I have written 2 posts about getting started, basically tutorials. Check them out
-and write your own Skype bot.
+I have written 2 posts about getting started, these will hold your hand on every step. Check them out
+and write your own Skype bot today :)
 
  * [Skype Bot for Fun and Profit - Intro](http://dow.ngra.de/2012/01/06/skype-bot-for-fun-and-profit/)
  * [Getting Started - everything you need before coding](http://dow.ngra.de/2012/01/06/skype-bot-for-fun-and-profit-part-i-getting-started/)
