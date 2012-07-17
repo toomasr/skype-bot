@@ -1,6 +1,6 @@
 Skype Bot
 =============
-Getting started tutorial
+Getting Started
 -----------------------
 
 I have written 2 posts about getting started, these will hold your hand on every step. Check them out
@@ -10,7 +10,7 @@ and write your own Skype bot today :)
  * [Getting Started - everything you need before coding](http://dow.ngra.de/2012/01/06/skype-bot-for-fun-and-profit-part-i-getting-started/)
  * [Getting Running - lets get this puppy on the rode](http://dow.ngra.de/2012/01/06/skype-bot-for-fun-and-profit-part-ii-getting-it-running/)
 
-Building the software
+Building the Software
 ---------------------
 
 You need to install the lib/skype-sdk-1.0.jar into your maven local repository.
@@ -21,7 +21,7 @@ number. I just called it 1.0. Easiest is to run the following command:
                 -DgroupId=skype -DartifactId=skype-sdk -Dversion=1.0 \\
                 -Dpackaging=jar
 
-Running the software
+Running the Software
 --------------------
 
 You will need:
