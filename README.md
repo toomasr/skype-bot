@@ -6,9 +6,9 @@ Getting started tutorial
 I have written 2 posts about getting started, basically tutorials. Check them out
 and write your own Skype bot.
 
- * [Generic intro to the subject](http://dow.ngra.de/2012/01/06/skype-bot-for-fun-and-profit/)
- * [Getting Started](http://dow.ngra.de/2012/01/06/skype-bot-for-fun-and-profit-part-i-getting-started/)
- * [Getting Running](http://dow.ngra.de/2012/01/06/skype-bot-for-fun-and-profit-part-ii-getting-it-running/)
+ * [Skype Bot for Fun and Profit - Intro](http://dow.ngra.de/2012/01/06/skype-bot-for-fun-and-profit/)
+ * [Getting Started - everything you need before coding](http://dow.ngra.de/2012/01/06/skype-bot-for-fun-and-profit-part-i-getting-started/)
+ * [Getting Running - lets get this puppy on the rode](http://dow.ngra.de/2012/01/06/skype-bot-for-fun-and-profit-part-ii-getting-it-running/)
 
 Building the software
 ---------------------
