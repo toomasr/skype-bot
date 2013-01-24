@@ -18,7 +18,7 @@ I got the file from http://developer.skype.com/ and it did not have a version
 number. I just called it 1.0. Easiest is to run the following command:
 
     mvn install:install-file -Dfile=lib/skype-sdk-1.0.jar \\
-                -DgroupId=skype -DartifactId=skype-sdk -Dversion=1.0 \\
+                -DgroupId=com.skype -DartifactId=skype-sdk -Dversion=1.0 \\
                 -Dpackaging=jar
 
 Running the Software
