@@ -40,4 +40,8 @@ If you have any questions just drop me a line [@toomasr](http://twitter.com/#!/t
 Where does this all fit in?
 ---------------------------
 
+Here is a graph that explains where this Skype Bot fits into the grand scheme. You will also
+see that the bot have means to take messages from 3rd party services via POST requests to the
+embedded web server.
+
 ![Architecture](https://raw.github.com/toomasr/skype-bot/master/shots/skype-bot.png)
