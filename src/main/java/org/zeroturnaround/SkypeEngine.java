@@ -1,7 +1,5 @@
 package org.zeroturnaround;
 
-import java.io.IOException;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -9,80 +7,71 @@ import com.skype.api.Account;
 import com.skype.api.Conversation;
 import com.skype.api.Skype;
 import com.skype.ipc.ClientConfiguration;
-import com.skype.ipc.ConnectionListener;
 
-public class SkypeEngine extends Thread {
-	private static final Logger log = LoggerFactory
-			.getLogger(SkypeEngine.class);
-	private static Skype skype;
-	private boolean isConnected = false;
+public class SkypeEngine {
+  private static final Logger log = LoggerFactory.getLogger(SkypeEngine.class);
+  private static Skype skype;
+  private boolean isConnected = false;
 
-	public SkypeEngine() {
-		skype = new Skype();
-	}
+  public SkypeEngine() {
+    skype = new Skype();
+  }
 
-	public void run() {
-		ClientConfiguration conf = configureSkype();
-		ConnectionListener listeners = new SkypeGlobalListener();
+  public void connect() {
+    ClientConfiguration conf = configureSkype();
+    EventListener listener = new EventListener(this);
 
-		skype.init(conf, listeners);
-		log.debug("Starting Skype");
-		skype.start();
+    skype.registerConnectionListener(listener);
+    skype.registerSkypeListener(listener);
+    skype.registerConversationListener(listener);
+    skype.registerMessageListener(listener);
 
-		String version = skype.getVersionString();
-		log.debug("Skype version " + version);
+    if (skype.init(conf, listener)) {
+      log.debug("Initing skype success, now starting");
+      skype.start();
 
-		log.debug("Logging in with user " + Configuration.skypeUsername);
-		Account account = skype
-				.getAccount(Configuration.skypeUsername);
-		account.loginWithPassword(Configuration.skypePassword, false, true);
-	}
+      String version = skype.getVersionString();
+      log.debug("Skype version " + version);
 
-	private boolean isConnected() {
-		return isConnected;
-	}
+      log.debug("Logging in with user " + Configuration.skypeUsername);
+      Account account = skype.getAccount(Configuration.skypeUsername);
+      account.loginWithPassword(Configuration.skypePassword, false, true);
+    }
+  }
 
-	private void disConnect() {
-		this.isConnected = false;
-	}
+  public boolean isConnected() {
+    return isConnected;
+  }
 
-	private void tearDownSkype(SkypeGlobalListener listener) throws IOException {
-		log.debug("Connection lost. Cleaning up.");
+  public void setConnected(boolean flag) {
+    this.isConnected = flag;
+  }
 
-		unRegisterAllListeners(skype, listener);
-	}
+  private ClientConfiguration configureSkype() {
+    log.debug("skypeConnect()");
+    ClientConfiguration conf = new ClientConfiguration();
 
-	private ClientConfiguration configureSkype() {
-		log.debug("skypeConnect()");
-		ClientConfiguration conf = new ClientConfiguration();
+    int port = 8963;
+    String host = "127.0.0.1";
 
-		conf.setTcpTransport("127.0.0.1", 8963);
-		conf.setCertificate(Configuration.pemFile);
+    conf.setTcpTransport(host, port);
+    log.debug("Using host {} and port {}", host, port);
 
-		return conf;
-	}
+    conf.setCertificate(Configuration.pemFile);
+    log.debug("Using certificate file {}", Configuration.pemFile);
 
-	private static void registerAllListeners(Skype skype,
-			SkypeGlobalListener listener) {
-		skype.registerMessageListener(listener);
-		skype.registerConversationListener(listener);
-	}
+    return conf;
+  }
 
-	private static void unRegisterAllListeners(Skype skype,
-			SkypeGlobalListener listener) {
-		skype.unRegisterMessageListener(listener);
-		skype.unRegisterConversationListener(listener);
-	}
-
-	public static boolean post(String group, String message) {
-		Conversation[] convos = skype
-				.getConversationList(Conversation.ListType.ALL_CONVERSATIONS);
-		for (int i = 0; i < convos.length; i++) {
-			if (convos[i].getDisplayName().equals(group)) {
-				convos[i].postText(message, false);
-				return true;
-			}
-		}
-		return false;
-	}
+  public static boolean post(String group, String message) {
+    Conversation[] convos = skype
+        .getConversationList(Conversation.ListType.ALL_CONVERSATIONS);
+    for (int i = 0; i < convos.length; i++) {
+      if (convos[i].getDisplayName().equals(group)) {
+        convos[i].postText(message, false);
+        return true;
+      }
+    }
+    return false;
+  }
 }

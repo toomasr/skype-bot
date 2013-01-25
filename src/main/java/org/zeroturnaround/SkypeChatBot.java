@@ -10,17 +10,26 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.zeroturnaround.web.WebServer;
 
-public class SkypeChatBot {
+public class SkypeChatBot extends Thread {
   private static final Logger log = LoggerFactory.getLogger(SkypeChatBot.class);
 
   public static void main(String[] args) throws Exception {
     initConfiguration();
-   // WebServer.startWebServer();
-    SkypeEngine bot = new SkypeEngine();
-    bot.start();
+    WebServer.startWebServer();
+
+    SkypeEngine sEngine = new SkypeEngine();
+    sEngine.connect();
+
+    // sometimes good if skypekit is not started
+    // but will be any second
+    for (int i = 0; i < 3; i++) {
+      log.debug("Is Skype connected? " + sEngine.isConnected());
+      sEngine.connect();
+      Thread.sleep(5000);
+    }
   }
 
-  public static void stop() {
+  public static void stopChatBot() {
     WebServer.stopWebServer();
   }
 
@@ -55,5 +64,27 @@ public class SkypeChatBot {
       System.err.println(msg);
       System.exit(1);
     }
+
+    // normalize pem file
+    File file = new File(Configuration.pemFile);
+    if (file.exists()) {
+      try {
+        Configuration.pemFile = file.getCanonicalPath();
+      }
+      catch (IOException e) {
+        throw new RuntimeException(e);
+      }
+    }
+    else {
+      throw new RuntimeException("Unable to find the configuration file " + Configuration.pemFile);
+    }
+
+    // make sure that there is an accompanying DER file
+    file = new File(Configuration.pemFile.replaceAll(".pem", ".der"));
+    if (!file.exists()) {
+      throw new RuntimeException(
+          "You need to have an accompanying DER file! Use the command 'openssl pkcs8 -topk8 -nocrypt -inform PEM -outform DER -in myKeyPair.pem -out myKeyPair.der'");
+    }
+
   }
 }
