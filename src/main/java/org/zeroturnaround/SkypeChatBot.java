@@ -15,7 +15,7 @@ public class SkypeChatBot {
 
   public static void main(String[] args) throws Exception {
     initConfiguration();
-    WebServer.startWebServer();
+   // WebServer.startWebServer();
     SkypeEngine bot = new SkypeEngine();
     bot.start();
   }
