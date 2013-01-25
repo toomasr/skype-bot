@@ -13,11 +13,11 @@ and write your own Skype bot today :)
 Building the Software
 ---------------------
 
-You need to install the lib/skype-sdk-1.0.jar into your maven local repository.
+You need to install the lib/skype...jar into your maven local repository.
 I got the file from http://developer.skype.com/ and it did not have a version
 number. I just called it 1.0. Easiest is to run the following command:
 
-    mvn install:install-file -Dfile=lib/skype-sdk-1.0.jar \\
+    mvn install:install-file -Dfile=lib/skype-sdk-4.5.0.105_2859374.jar \\
                 -DgroupId=com.skype -DartifactId=skype-sdk -Dversion=1.0 \\
                 -Dpackaging=jar
 
