@@ -19,6 +19,9 @@ fill personal properties with sensible values
 run your copy of skype runtime
 
     java -jar skype-bot-core/target/skype-bot-0.0.1-SNAPSHOT.jar
+    
+    
+try: "~help" in some skype chat where the bot is present.
 
 Check out *skype-bot-plugin-api* and *skype-bot-plugin-example* if you want to add commands.
 
