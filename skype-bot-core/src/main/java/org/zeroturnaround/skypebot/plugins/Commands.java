@@ -19,6 +19,9 @@ public class Commands {
 
   public static void add(Collection<Command> commands) {
     for (Command command : commands) {
+      if (command == null) {
+        continue;
+      }
       add(command);
     }
   }
