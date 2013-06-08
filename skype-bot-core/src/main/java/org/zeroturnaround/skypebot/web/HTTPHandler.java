@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.eclipse.jetty.server.Request;
 import org.eclipse.jetty.server.handler.AbstractHandler;
+import org.zeroturnaround.skypebot.Configuration;
 import org.zeroturnaround.skypebot.SkypeEngine;
 
 public class HTTPHandler extends AbstractHandler {
@@ -22,15 +23,12 @@ public class HTTPHandler extends AbstractHandler {
     String group = null;
 
     if ("/post".equals(target)) {
-      String[] tmp = request.getParameterValues("message");
-      if (tmp != null && tmp.length > 0) {
-        message = tmp[0];
+      if (!Configuration.postApiKey.equals(getParameter(request, "apikey"))) {
+        ((Request) request).setHandled(true);
+        return;
       }
-
-      tmp = request.getParameterValues("group");
-      if (tmp != null && tmp.length > 0) {
-        group = tmp[0];
-      }
+      message = getParameter(request, "message");
+      group = getParameter(request, "group");
 
       boolean result = SkypeEngine.post(group, message);
       if (result)
@@ -39,5 +37,13 @@ public class HTTPHandler extends AbstractHandler {
         response.getWriter().println("FAIL");
     }
     ((Request) request).setHandled(true);
+  }
+
+  public String getParameter(HttpServletRequest request, String key) {
+    String[] tmp = request.getParameterValues(key);
+    if (tmp != null && tmp.length > 0) {
+      return tmp[0];
+    }
+    return "";
   }
 }
