@@ -42,7 +42,7 @@ public class HTTPHandler extends AbstractHandler {
       }
 
       String requestBody = IOUtils.toString(request.getInputStream());
-      Map<String, String> replies = OnPostCommands.handle(target, request.getParameterMap(), requestBody);
+      Map<String, String[]> replies = OnPostCommands.handle(target, request.getParameterMap(), requestBody);
       if(replies == null || replies.isEmpty()) {
         SkypeEngine.post(replies);
         response.getWriter().println("OK");

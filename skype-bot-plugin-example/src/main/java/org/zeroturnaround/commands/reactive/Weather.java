@@ -1,4 +1,4 @@
-package org.zeroturnaround.commands;
+package org.zeroturnaround.commands.reactive;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;

@@ -9,8 +9,8 @@ public interface CronCommand extends Command {
   String[] getNecessaryConversationNames();
 
   /**
-   *
-   * @return "Conversation name -> message to post"
+   * 
+   * @return "Conversation name -> messages[] to post"
    */
-  Map<String, String> fire(String... availableConversationNames);
+  Map<String, String[]> fire(String... availableConversationNames);
 }

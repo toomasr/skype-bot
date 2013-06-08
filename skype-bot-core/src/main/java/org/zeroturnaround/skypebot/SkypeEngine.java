@@ -71,9 +71,11 @@ public class SkypeEngine {
     return false;
   }
 
-  public static void post(Map<String, String> messages) {
-    for (Map.Entry<String, String> me : messages.entrySet()) {
-      post(me.getKey(), me.getValue());
+  public static void post(Map<String, String[]> messages) {
+    for (Map.Entry<String, String[]> me : messages.entrySet()) {
+      for (String message : me.getValue()) {
+        post(me.getKey(), message);
+      }
     }
   }
 }

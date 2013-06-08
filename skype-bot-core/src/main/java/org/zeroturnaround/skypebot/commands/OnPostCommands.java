@@ -20,7 +20,7 @@ public class OnPostCommands {
     activeCommands.clear();
   }
 
-  public static Map<String, String> handle(String commandName, Map<String, String[]> map, String requestBody) {
+  public static Map<String, String[]> handle(String commandName, Map<String, String[]> map, String requestBody) {
     OnPostCommand command = activeCommands.get(commandName);
     if (command == null) {
       log.info("OnPostCommand for commandName {} is not found", commandName);

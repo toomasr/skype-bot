@@ -1,4 +1,4 @@
-package org.zeroturnaround.commands;
+package org.zeroturnaround.commands.cron;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -28,9 +28,9 @@ public class StupidCronCommand implements CronCommand {
   }
 
   @Override
-  public Map<String, String> fire(String... availableConversationNames) {
-    Map<String, String> responses = new HashMap<String, String>();
-    responses.put("SkypeBot-testbed", "this is a very important message");
+  public Map<String, String[]> fire(String... availableConversationNames) {
+    Map<String, String[]> responses = new HashMap<String, String[]>();
+    responses.put("SkypeBot-testbed", new String[] { "this is a very important message" });
     return responses;
   }
 

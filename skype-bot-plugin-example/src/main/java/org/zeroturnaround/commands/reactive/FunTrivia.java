@@ -1,4 +1,4 @@
-package org.zeroturnaround.commands;
+package org.zeroturnaround.commands.reactive;
 
 import java.util.HashSet;
 import java.util.Set;

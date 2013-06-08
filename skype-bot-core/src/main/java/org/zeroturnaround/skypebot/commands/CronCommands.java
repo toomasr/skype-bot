@@ -20,7 +20,7 @@ public class CronCommands {
       @Override
       public void run() {
         List<String> availableConversations = SkypeEventHandler.getAvailableConversationNames(command.getNecessaryConversationNames());
-        Map<String, String> result = command.fire(availableConversations.toArray(new String[0]));
+        Map<String, String[]> result = command.fire(availableConversations.toArray(new String[0]));
         SkypeEngine.post(result);
       }
     }, delay, delay, TimeUnit.SECONDS);
