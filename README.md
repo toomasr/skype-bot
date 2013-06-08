@@ -3,19 +3,32 @@ Skype Bot
 
 1 minute intro
 _____________
+
+NB! Compiles and runs against something that I got from skype as: **sdp-distro-desktop-skypekit_4.5.0.105_2859374.tar.gz**
+
 To run it:
+
     cp project.properties personal.properties
-fill personal properties
-    mkdir plugins
+    
+fill personal properties with sensible values
+
+    mkdir plugins # this dir is checked for plugins
     mvn clean install 
     cp skype-bot-plugin-example/target/skype-bot-plugin-example-0.0.1-SNAPSHOT.jar plugins/
+    
 run your copy of skype runtime
+
     java -jar skype-bot-core/target/skype-bot-0.0.1-SNAPSHOT.jar
+    
+    
+try: "~help" in some skype chat where the bot is present.
 
+Check out *skype-bot-plugin-api* and *skype-bot-plugin-example* if you want to add commands.
 
-Check out skype-bot-plugin-api and skype-bot-plugin-example if you want to add commands.
-Currently it support loading plugins from a local directory only, there are plans to add dropbox support.
-Also only reactive commands for now. 
+Currently it only supports loading plugins from a local directory, there are plans to add dropbox support.
+
+Also only reactive commands for now.
+
 
 Getting Started
 -----------------------
