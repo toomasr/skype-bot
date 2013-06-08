@@ -3,6 +3,9 @@ Skype Bot
 
 1 minute intro
 _____________
+
+NB! Compiles and runs against something that I got from skype as: **sdp-distro-desktop-skypekit_4.5.0.105_2859374.tar.gz**
+
 To run it:
 
     cp project.properties personal.properties
