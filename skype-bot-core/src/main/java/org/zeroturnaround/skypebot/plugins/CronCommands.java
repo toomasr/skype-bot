@@ -1,17 +1,35 @@
 package org.zeroturnaround.skypebot.plugins;
 
+import java.util.List;
+import java.util.Map;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.TimeUnit;
+
+import org.zeroturnaround.skypebot.EventListener;
 import org.zeroturnaround.skypebot.plugins.CronCommand;
 
 public class CronCommands {
 
-  public void add(CronCommand command) {
-    // TODO Auto-generated method stub
+  private ScheduledExecutorService executorService = Executors.newScheduledThreadPool(2);
 
+  public void add(final CronCommand command) {
+    long delay = command.getCooldown();
+    executorService.scheduleAtFixedRate(new Runnable() {
+      @Override
+      public void run() {
+        List<String> availableConversations = EventListener.getAvailableConversationNames(command.getNecessaryConversationNames());
+        Map<String, String> result = command.fire(availableConversations.toArray(new String[0]));
+        EventListener.post(result);
+      }
+    }, delay, delay, TimeUnit.SECONDS);
   }
 
   public void clear() {
-    // TODO Auto-generated method stub
-
+    // stop old
+    executorService.shutdownNow();
+    // create new service
+    executorService = Executors.newScheduledThreadPool(2);
   }
 
 }

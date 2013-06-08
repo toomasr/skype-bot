@@ -9,7 +9,6 @@ import java.util.concurrent.Executors;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.zeroturnaround.skypebot.plugins.Commands;
 import org.zeroturnaround.skypebot.plugins.Plugins;
 import org.zeroturnaround.skypebot.web.WebServer;
 

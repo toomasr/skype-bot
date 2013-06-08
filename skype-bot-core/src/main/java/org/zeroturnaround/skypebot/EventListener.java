@@ -1,7 +1,8 @@
 package org.zeroturnaround.skypebot;
 
-import java.util.Collection;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.slf4j.Logger;
@@ -45,6 +46,16 @@ public class EventListener extends SkypeAdapter {
     return ReactiveCommands.handle(conversation, author, commandText);
   }
 
+  public static List<String> getAvailableConversationNames(String... neededNames) {
+    List<String> available = new ArrayList<String>();
+    for (String name : neededNames) {
+      if (conversations.containsKey(name)) {
+        available.add(name);
+      }
+    }
+    return available;
+  }
+
   public static void postToChat(String chatName, String message) {
     // log.debug("PostToChat=" + chatName);
     Conversation convo = conversations.get(chatName);
@@ -61,6 +72,12 @@ public class EventListener extends SkypeAdapter {
 
   public void sidOnConnected() {
     skypeEngine.setConnected(true);
+  }
+
+  public static void post(Map<String, String> result) {
+    for (Map.Entry<String, String> me : result.entrySet()) {
+      postToChat(me.getKey(), me.getValue());
+    }
   }
 
 }
