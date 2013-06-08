@@ -98,5 +98,7 @@ public class SkypeChatBot extends Thread {
       throw new RuntimeException("You need to have an accompanying DER file! Use the command "
           + "'openssl pkcs8 -topk8 -nocrypt -inform PEM -outform DER -in myKeyPair.pem -out myKeyPair.der'");
     }
+
+    Configuration.setAdmins(Configuration.getProperty("adminfile"));
   }
 }
