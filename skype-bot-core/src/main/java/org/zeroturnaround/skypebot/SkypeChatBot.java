@@ -64,6 +64,7 @@ public class SkypeChatBot extends Thread {
     catch (IOException e) {
       throw new RuntimeException("Unable to read properties file " + propsFile.getAbsolutePath(), e);
     }
+    Configuration.props = props;
 
     Configuration.skypeUsername = props.getProperty("username", null);
     Configuration.skypePassword = props.getProperty("password", null);

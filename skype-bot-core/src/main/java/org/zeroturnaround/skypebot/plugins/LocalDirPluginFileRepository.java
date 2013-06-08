@@ -12,7 +12,7 @@ import org.slf4j.LoggerFactory;
 public class LocalDirPluginFileRepository implements PluginFileRepository {
   private static final Logger log = LoggerFactory.getLogger(LocalDirPluginFileRepository.class);
 
-  private File dir;
+  protected File dir;
 
   public LocalDirPluginFileRepository(String dirname) {
     this.dir = new File(dirname);
@@ -24,6 +24,7 @@ public class LocalDirPluginFileRepository implements PluginFileRepository {
       File[] files = dir.listFiles(new FilenameFilter() {
         @Override
         public boolean accept(File dir, String name) {
+          log.info("Checking file " + name);
           return name.endsWith(".jar");
         }
       });
