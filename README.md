@@ -4,18 +4,25 @@ Skype Bot
 1 minute intro
 _____________
 To run it:
+
     cp project.properties personal.properties
-fill personal properties
-    mkdir plugins
+    
+fill personal properties with sensible values
+
+    mkdir plugins # this dir is checked for plugins
     mvn clean install 
     cp skype-bot-plugin-example/target/skype-bot-plugin-example-0.0.1-SNAPSHOT.jar plugins/
+    
 run your copy of skype runtime
+
     java -jar skype-bot-core/target/skype-bot-0.0.1-SNAPSHOT.jar
 
+Check out *skype-bot-plugin-api* and *skype-bot-plugin-example* if you want to add commands.
 
-Check out skype-bot-plugin-api and skype-bot-plugin-example if you want to add commands.
-Currently it support loading plugins from a local directory only, there are plans to add dropbox support.
-Also only reactive commands for now. 
+Currently it only supports loading plugins from a local directory, there are plans to add dropbox support.
+
+Also only reactive commands for now.
+
 
 Getting Started
 -----------------------
