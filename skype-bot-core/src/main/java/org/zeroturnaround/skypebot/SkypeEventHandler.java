@@ -7,20 +7,24 @@ import java.util.Map;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.zeroturnaround.skypebot.plugins.ReactiveCommands;
+import org.zeroturnaround.skypebot.commands.ReactiveCommands;
 
 import com.skype.api.Conversation;
 import com.skype.api.Message;
 
-public class EventListener extends SkypeAdapter {
-  private static final Logger log = LoggerFactory.getLogger(EventListener.class);
+public class SkypeEventHandler extends SkypeAdapter {
+  private static final Logger log = LoggerFactory.getLogger(SkypeEventHandler.class);
   private static final String BOT_MSG_PREFIX = "~";
 
   private static Map<String, Conversation> conversations = new HashMap<String, Conversation>();
   private final SkypeEngine skypeEngine;
 
-  public EventListener(SkypeEngine skype) {
+  public SkypeEventHandler(SkypeEngine skype) {
     this.skypeEngine = skype;
+  }
+
+  public static void addConversation(String name, Conversation conversation) {
+    conversations.put(name, conversation);
   }
 
   public void onMessage(Conversation conversation, Message message) {
@@ -57,11 +61,9 @@ public class EventListener extends SkypeAdapter {
   }
 
   public static void postToChat(String chatName, String message) {
-    // log.debug("PostToChat=" + chatName);
-    Conversation convo = conversations.get(chatName);
-    if (convo != null) {
-      // log.debug("Found the conversation, posting");
-      convo.postText(message, false);
+    Conversation conversation = conversations.get(chatName);
+    if (conversation != null) {
+      conversation.postText(message, false);
     }
   }
 
@@ -72,12 +74,6 @@ public class EventListener extends SkypeAdapter {
 
   public void sidOnConnected() {
     skypeEngine.setConnected(true);
-  }
-
-  public static void post(Map<String, String> result) {
-    for (Map.Entry<String, String> me : result.entrySet()) {
-      postToChat(me.getKey(), me.getValue());
-    }
   }
 
 }

@@ -1,16 +1,14 @@
-package org.zeroturnaround.skypebot.plugins;
+package org.zeroturnaround.skypebot.commands;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.zeroturnaround.skypebot.SkypeEngine;
 import org.zeroturnaround.skypebot.plugins.ReactiveCommand;
 
 public class ReactiveCommands {
-  private static final Logger log = LoggerFactory.getLogger(SkypeEngine.class);
+  private static final Logger log = LoggerFactory.getLogger(ReactiveCommands.class);
   private static final List<ReactiveCommand> activeCommands = new ArrayList<ReactiveCommand>();
 
   public void add(ReactiveCommand command) {

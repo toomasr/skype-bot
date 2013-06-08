@@ -1,15 +1,18 @@
 package org.zeroturnaround.skypebot.web;
 
 import java.io.IOException;
+import java.util.Map;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.commons.io.IOUtils;
 import org.eclipse.jetty.server.Request;
 import org.eclipse.jetty.server.handler.AbstractHandler;
 import org.zeroturnaround.skypebot.Configuration;
 import org.zeroturnaround.skypebot.SkypeEngine;
+import org.zeroturnaround.skypebot.commands.OnPostCommands;
 
 public class HTTPHandler extends AbstractHandler {
 
@@ -31,10 +34,22 @@ public class HTTPHandler extends AbstractHandler {
       group = getParameter(request, "group");
 
       boolean result = SkypeEngine.post(group, message);
-      if (result)
+      response.getWriter().println(result ? "OK" : "FAIL");
+    }
+    else {
+      if(target.startsWith("/")) {
+        target = target.substring(1);
+      }
+
+      String requestBody = IOUtils.toString(request.getInputStream());
+      Map<String, String> replies = OnPostCommands.handle(target, request.getParameterMap(), requestBody);
+      if(replies == null || replies.isEmpty()) {
+        SkypeEngine.post(replies);
         response.getWriter().println("OK");
-      else
+      }
+      else {
         response.getWriter().println("FAIL");
+      }
     }
     ((Request) request).setHandled(true);
   }

@@ -1,4 +1,4 @@
-package org.zeroturnaround.skypebot.plugins.defaultCommands;
+package org.zeroturnaround.skypebot.commands.defaultCommands;
 
 import org.zeroturnaround.skypebot.plugins.NameCommand;
 import org.zeroturnaround.skypebot.plugins.Plugins;

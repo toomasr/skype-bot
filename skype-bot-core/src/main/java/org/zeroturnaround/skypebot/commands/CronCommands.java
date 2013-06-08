@@ -1,4 +1,4 @@
-package org.zeroturnaround.skypebot.plugins;
+package org.zeroturnaround.skypebot.commands;
 
 import java.util.List;
 import java.util.Map;
@@ -6,7 +6,8 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 
-import org.zeroturnaround.skypebot.EventListener;
+import org.zeroturnaround.skypebot.SkypeEventHandler;
+import org.zeroturnaround.skypebot.SkypeEngine;
 import org.zeroturnaround.skypebot.plugins.CronCommand;
 
 public class CronCommands {
@@ -18,9 +19,9 @@ public class CronCommands {
     executorService.scheduleAtFixedRate(new Runnable() {
       @Override
       public void run() {
-        List<String> availableConversations = EventListener.getAvailableConversationNames(command.getNecessaryConversationNames());
+        List<String> availableConversations = SkypeEventHandler.getAvailableConversationNames(command.getNecessaryConversationNames());
         Map<String, String> result = command.fire(availableConversations.toArray(new String[0]));
-        EventListener.post(result);
+        SkypeEngine.post(result);
       }
     }, delay, delay, TimeUnit.SECONDS);
   }

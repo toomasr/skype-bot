@@ -1,5 +1,7 @@
 package org.zeroturnaround.skypebot;
 
+import java.util.Map;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -19,7 +21,7 @@ public class SkypeEngine {
 
   public void connect() {
     ClientConfiguration conf = configureSkype();
-    EventListener listener = new EventListener(this);
+    SkypeEventHandler listener = new SkypeEventHandler(this);
 
     skype.registerConnectionListener(listener);
     skype.registerSkypeListener(listener);
@@ -57,15 +59,21 @@ public class SkypeEngine {
     return conf;
   }
 
-  public static boolean post(String group, String message) {
-    Conversation[] convos = skype
-        .getConversationList(Conversation.ListType.ALL_CONVERSATIONS);
-    for (int i = 0; i < convos.length; i++) {
-      if (convos[i].getDisplayName().equals(group)) {
-        convos[i].postText(message, false);
+  public static boolean post(String conversationName, String message) {
+    Conversation[] conversations = skype.getConversationList(Conversation.ListType.ALL_CONVERSATIONS);
+    for (int i = 0; i < conversations.length; i++) {
+      if (conversations[i].getDisplayName().equals(conversationName)) {
+        conversations[i].postText(message, false);
+        SkypeEventHandler.addConversation(conversationName, conversations[i]);
         return true;
       }
     }
     return false;
+  }
+
+  public static void post(Map<String, String> messages) {
+    for (Map.Entry<String, String> me : messages.entrySet()) {
+      post(me.getKey(), me.getValue());
+    }
   }
 }

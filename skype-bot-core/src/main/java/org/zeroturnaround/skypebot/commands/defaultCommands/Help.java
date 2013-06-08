@@ -1,9 +1,9 @@
-package org.zeroturnaround.skypebot.plugins.defaultCommands;
+package org.zeroturnaround.skypebot.commands.defaultCommands;
 
 import java.io.PrintWriter;
 import java.io.StringWriter;
 
-import org.zeroturnaround.skypebot.plugins.Commands;
+import org.zeroturnaround.skypebot.commands.Commands;
 import org.zeroturnaround.skypebot.plugins.NameCommand;
 
 public class Help extends NameCommand {

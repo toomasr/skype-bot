@@ -11,6 +11,7 @@ import java.util.Set;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.zeroturnaround.skypebot.commands.Commands;
 
 public class Plugins {
   private static final Logger log = LoggerFactory.getLogger(Plugins.class);
