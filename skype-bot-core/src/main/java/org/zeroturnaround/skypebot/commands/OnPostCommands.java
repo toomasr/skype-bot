@@ -1,5 +1,6 @@
 package org.zeroturnaround.skypebot.commands;
 
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -24,15 +25,16 @@ public class OnPostCommands {
     OnPostCommand command = activeCommands.get(commandName);
     if (command == null) {
       log.info("OnPostCommand for commandName {} is not found", commandName);
+      return Collections.emptyMap();
     }
     try {
       return command.handle(map, requestBody);
     }
     catch (Exception e) {
       log.error("Command {} failed to react to parameters: {}",
-          new Object[] { command.getClass().getSimpleName(), map }, e);
+          new Object[] { command == null ? "null" : command.getClass().getSimpleName(), map }, e);
     }
-    return null;
+    return Collections.emptyMap();
   }
 
 }

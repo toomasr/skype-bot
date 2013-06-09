@@ -72,6 +72,9 @@ public class SkypeEngine {
   }
 
   public static void post(Map<String, String[]> messages) {
+    if (messages == null) {
+      return;
+    }
     for (Map.Entry<String, String[]> me : messages.entrySet()) {
       for (String message : me.getValue()) {
         post(me.getKey(), message);
