@@ -12,6 +12,7 @@ import org.eclipse.jetty.server.Request;
 import org.eclipse.jetty.server.handler.AbstractHandler;
 import org.zeroturnaround.skypebot.Configuration;
 import org.zeroturnaround.skypebot.SkypeEngine;
+import org.zeroturnaround.skypebot.SkypeEventHandler;
 import org.zeroturnaround.skypebot.commands.OnPostCommands;
 
 public class HTTPHandler extends AbstractHandler {
@@ -33,7 +34,7 @@ public class HTTPHandler extends AbstractHandler {
       message = getParameter(request, "message");
       group = getParameter(request, "group");
 
-      boolean result = SkypeEngine.post(group, message);
+      boolean result = SkypeEventHandler.postToChat(group, message);
       response.getWriter().println(result ? "OK" : "FAIL");
     }
     else {
@@ -47,7 +48,7 @@ public class HTTPHandler extends AbstractHandler {
         response.getWriter().println("FAIL");
       }
       else {
-        SkypeEngine.post(replies);
+        SkypeEventHandler.post(replies);
         response.getWriter().println("OK");
       }
     }

@@ -7,6 +7,7 @@ import java.util.List;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.zeroturnaround.skypebot.commands.defaultCommands.Alias;
 import org.zeroturnaround.skypebot.commands.defaultCommands.Help;
 import org.zeroturnaround.skypebot.commands.defaultCommands.Reload;
 import org.zeroturnaround.skypebot.plugins.Command;
@@ -47,10 +48,15 @@ public class Commands {
 
   public static void getCommandsHelp(PrintWriter writer) {
     for (Command command : allCommands) {
+      if (!(command instanceof ReactiveCommand)) {
+        writer.print("* ");
+      }
       writer.print(command.getName());
       writer.print(" - ");
       writer.println(command.getHelp());
     }
+    writer.println("_______________________________________");
+    writer.println("* - means command is triggered by a third party event, you can't call that from chat");
   }
 
   public static void init() {
@@ -66,6 +72,7 @@ public class Commands {
     // admin commands that are already present
     add(new Help());
     add(new Reload());
+    add(new Alias());
     log.info("Cleared all commands. currently available: {}", allCommands);
   }
 

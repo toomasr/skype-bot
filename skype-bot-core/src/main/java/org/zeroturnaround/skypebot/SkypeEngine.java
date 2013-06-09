@@ -59,26 +59,17 @@ public class SkypeEngine {
     return conf;
   }
 
-  public static boolean post(String conversationName, String message) {
+  /**
+   * package visible for a reason
+   */
+  static Conversation findConversation(String conversationName) {
     Conversation[] conversations = skype.getConversationList(Conversation.ListType.ALL_CONVERSATIONS);
     for (int i = 0; i < conversations.length; i++) {
       if (conversations[i].getDisplayName().equals(conversationName)) {
-        conversations[i].postText(message, false);
-        SkypeEventHandler.addConversation(conversationName, conversations[i]);
-        return true;
+        return conversations[i];
       }
     }
-    return false;
+    return null;
   }
 
-  public static void post(Map<String, String[]> messages) {
-    if (messages == null) {
-      return;
-    }
-    for (Map.Entry<String, String[]> me : messages.entrySet()) {
-      for (String message : me.getValue()) {
-        post(me.getKey(), message);
-      }
-    }
-  }
 }
