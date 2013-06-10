@@ -20,6 +20,7 @@ public class Weather extends NameCommand {
   private Map<String, String> cities = new HashMap<String, String>();
 
   public Weather() {
+    cities.put("Brussels", "2800866");
     cities.put("Boston", "4930956");
     cities.put("London", "2643743");
     cities.put("Prague", "3067696");

@@ -28,14 +28,21 @@ public class SkypeChatBot extends Thread {
   }
 
   public static void startSkypeEngine() throws InterruptedException {
+    try {
+      SkypeKitRuntime.init().start();
+      // sleep a bit to be sure
+      Thread.sleep(3000);
+    }
+    catch (Exception e) {
+      log.error("I was unable to start runtime myself. I'll assume that it is started somehow manually", e);
+    }
     SkypeEngine sEngine = new SkypeEngine();
-    sEngine.connect();
     for (int i = 0; i < 3; i++) {
       if (sEngine.isConnected()) {
         break;
       }
-      Thread.sleep(5000);
       sEngine.connect();
+      Thread.sleep(5000);
     }
   }
 
