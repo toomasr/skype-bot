@@ -4,6 +4,6 @@ target
 .settings
 rebel.xml
 etc
-plugins
+/plugins
 admins
 linux-x86-skypekit
