@@ -4,7 +4,7 @@ set -e
 
 # find pid file
 cd $appHome
-[ -f skype-bot.pid ] &&kill `cat skype-bot.pid`
+[ -f skype-bot.pid ] && kill `cat skype-bot.pid`
 echo "Will sleep 5 to let everything die"
 sleep 5
 #don't forget to exit, otherwise deploy can't finish
