@@ -17,7 +17,7 @@ public class Plugins {
   private static final Logger log = LoggerFactory.getLogger(Plugins.class);
 
   // private static final PluginFileRepository repo = new DropboxDirPluginFileRepository("plugins");
-  private static final PluginFileRepository repo = new LocalDirPluginFileRepository("plugins");
+  private static final PluginFileRepository repo = new LocalDirPluginFileRepository("lib");
 
   private static final Map<String, URLClassLoader> pluginClassloaders = new LinkedHashMap<String, URLClassLoader>();
 
