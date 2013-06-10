@@ -27,7 +27,7 @@ public class Configuration {
   }
 
   public static boolean isAdmin(String username) {
-    return !admins.isEmpty() || admins.contains(username);
+    return admins.isEmpty() || admins.contains(username);
   }
 
   static void setAdmins(String file) {
