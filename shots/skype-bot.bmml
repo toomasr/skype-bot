@@ -1,0 +1,75 @@
+<mockup version="1.0" skin="sketch" fontFace="Balsamiq Sans" measuredW="887" measuredH="505" mockupW="645" mockupH="486">
+  <controls>
+    <control controlID="0" controlTypeID="com.balsamiq.mockups::RoundButton" x="257" y="19" w="163" h="47" measuredW="32" measuredH="32" zOrder="0" locked="false" isInGroup="-1">
+      <controlProperties>
+        <color>2848996</color>
+        <text>Skype%20Servers</text>
+      </controlProperties>
+    </control>
+    <control controlID="6" controlTypeID="com.balsamiq.mockups::TextArea" x="242" y="177" w="200" h="110" measuredW="200" measuredH="140" zOrder="1" locked="false" isInGroup="-1">
+      <controlProperties>
+        <color>16750848</color>
+        <text>+%20Provided%20by%20Skype%0A+%20Talks%20to%20the%20Skype%20servers%0A+%20Runs%20like%20a%20daemon%0A+%20APIs%20interact%20with%20this%0A+%20Sometimes%20crashes%20%3A%29</text>
+      </controlProperties>
+    </control>
+    <control controlID="9" controlTypeID="com.balsamiq.mockups::TextInput" x="242" y="135" w="200" h="-1" measuredW="89" measuredH="32" zOrder="2" locked="false" isInGroup="-1">
+      <controlProperties>
+        <align>center</align>
+        <color>16750848</color>
+        <size>18</size>
+        <text>Skype%20Kit</text>
+      </controlProperties>
+    </control>
+    <control controlID="10" controlTypeID="com.balsamiq.mockups::TextInput" x="494" y="135" w="200" h="-1" measuredW="96" measuredH="32" zOrder="3" locked="false" isInGroup="-1">
+      <controlProperties>
+        <align>center</align>
+        <color>40463</color>
+        <size>18</size>
+        <text>Skype%20Bot</text>
+      </controlProperties>
+    </control>
+    <control controlID="11" controlTypeID="com.balsamiq.mockups::TextArea" x="494" y="177" w="200" h="110" measuredW="200" measuredH="140" zOrder="4" locked="false" isInGroup="-1">
+      <controlProperties>
+        <color>40463</color>
+        <text>+%20Talks%20to%20Skype%20Kit%0A+%20Reacts%20to%20chat%20message%0A%20+%20%28bot%3Ahello%20and%20answers%20with%20Hello%29%0A+%20Runs%20a%20web%20server%21%0A%20+%20By%20default%20on%20port%202500</text>
+      </controlProperties>
+    </control>
+    <control controlID="12" controlTypeID="com.balsamiq.mockups::Arrow" x="333" y="73" w="10" h="54" measuredW="150" measuredH="100" zOrder="5" locked="false" isInGroup="-1">
+      <controlProperties>
+        <curvature>0</curvature>
+      </controlProperties>
+    </control>
+    <control controlID="13" controlTypeID="com.balsamiq.mockups::Arrow" x="442" y="146" w="53" h="10" measuredW="150" measuredH="100" zOrder="6" locked="false" isInGroup="-1">
+      <controlProperties>
+        <curvature>0</curvature>
+      </controlProperties>
+    </control>
+    <control controlID="14" controlTypeID="com.balsamiq.mockups::HRule" x="242" y="302" w="453" h="-1" measuredW="100" measuredH="10" zOrder="7" locked="false" isInGroup="-1"/>
+    <control controlID="15" controlTypeID="com.balsamiq.mockups::TextInput" x="268" y="353" w="426" h="-1" measuredW="155" measuredH="32" zOrder="8" locked="false" isInGroup="-1">
+      <controlProperties>
+        <align>center</align>
+        <color>16767334</color>
+        <size>18</size>
+        <text>3rd%20Party%20Service</text>
+      </controlProperties>
+    </control>
+    <control controlID="16" controlTypeID="com.balsamiq.mockups::TextArea" x="268" y="395" w="426" h="110" measuredW="200" measuredH="140" zOrder="9" locked="false" isInGroup="-1">
+      <controlProperties>
+        <color>16767334</color>
+        <text>+%20Wants%20to%20post%20to%20Skype%20chats%20about%20important%20stuff%0A+%20Posts%20to%20Skype%20Bot%202500%20port%0A%20+%20/post%3Fchat%3DgroupChat1%26message%3DHello%2520World</text>
+      </controlProperties>
+    </control>
+    <control controlID="17" controlTypeID="com.balsamiq.mockups::StickyNote" x="715" y="185" w="172" h="94" measuredW="109" measuredH="123" zOrder="10" locked="false" isInGroup="-1">
+      <controlProperties>
+        <size>20</size>
+        <text>This%20is%20the%20GitHub%20Project%21</text>
+      </controlProperties>
+    </control>
+    <control controlID="18" controlTypeID="com.balsamiq.mockups::Arrow" x="701" y="146" w="103" h="40" measuredW="150" measuredH="100" zOrder="11" locked="false" isInGroup="-1">
+      <controlProperties>
+        <direction>top</direction>
+        <rightArrow>false</rightArrow>
+      </controlProperties>
+    </control>
+  </controls>
+</mockup>
