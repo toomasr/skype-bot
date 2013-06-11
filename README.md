@@ -40,17 +40,6 @@ and write your own Skype bot today :)
  * [Getting Started - everything you need before coding](http://toomasr.com/blog/2013/05/27/skype-bot-for-fun-and-profit-part-I/)
  * [Getting Running - lets get this puppy on the rode](http://toomasr.com/blog/2013/05/27/skype-bot-for-fun-and-profit-part-II/)
 
-Building the Software
----------------------
-
-You need to install the lib/skype...jar into your maven local repository.
-I got the file from http://developer.skype.com/ and it did not have a version
-number. I just called it 1.2. Easiest is to run the following command:
-
-    mvn install:install-file -Dfile=lib/skypekit.jar \\
-                -DgroupId=com.skype -DartifactId=skype-sdk -Dversion=1.2 \\
-                -Dpackaging=jar
-
 Running the Software
 --------------------
 
