@@ -32,15 +32,9 @@
 			<type>jar</type>
 		</dependency>
 		<dependency>
-			<groupId>com.skype</groupId>
-			<artifactId>skype-sdk</artifactId>
-			<version>1.2</version>
-			<type>jar</type>
-		</dependency>
-		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
-			<version>4.2.1</version>
+			<version>4.5</version>
 			<scope>test</scope>
 		</dependency>
 		<dependency>
@@ -100,6 +94,27 @@
 					</execution>
 				</executions>
 			</plugin>
+
+			<plugin>
+				<groupId>com.googlecode.addjars-maven-plugin</groupId>
+				<artifactId>addjars-maven-plugin</artifactId>
+				<version>1.0.5</version>
+				<executions>
+					<execution>
+						<goals>
+							<goal>add-jars</goal>
+						</goals>
+						<configuration>
+							<resources>
+								<resource>
+									<directory>${basedir}/../lib</directory>
+								</resource>
+							</resources>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+
 		</plugins>
 	</build>
 
