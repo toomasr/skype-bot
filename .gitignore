@@ -1,9 +1,10 @@
-personal.properties
+/personal.properties
 target
 .classpath
 .settings
 rebel.xml
 etc
 /plugins
-admins
+/admins
 linux-x86-skypekit
+skype-bot.pid

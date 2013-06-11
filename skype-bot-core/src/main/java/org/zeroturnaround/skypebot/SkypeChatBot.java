@@ -7,8 +7,10 @@ import java.io.IOException;
 import java.util.Properties;
 import java.util.concurrent.Executors;
 
+import org.apache.commons.io.FileUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.zeroturnaround.skypebot.pid.PIDUtil;
 import org.zeroturnaround.skypebot.plugins.Plugins;
 import org.zeroturnaround.skypebot.web.WebServer;
 
@@ -17,10 +19,16 @@ public class SkypeChatBot extends Thread {
   private static final Logger log = LoggerFactory.getLogger(SkypeChatBot.class);
 
   public static void main(String[] args) throws Exception {
+    writePID();
     initConfiguration();
     initCommands();
     startWebServer();
     startSkypeEngine();
+  }
+
+  private static void writePID() throws IOException {
+    File f = new File("skype-bot.pid");
+    FileUtils.writeStringToFile(f, PIDUtil.getPID());
   }
 
   private static void initCommands() {

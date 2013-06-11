@@ -39,5 +39,6 @@
 		<module>skype-bot-core</module>
 		<module>skype-bot-plugin-api</module>
 		<module>skype-bot-plugin-example</module>
+    <module>skype-bot-lr-package</module>
 	</modules>
 </project>
