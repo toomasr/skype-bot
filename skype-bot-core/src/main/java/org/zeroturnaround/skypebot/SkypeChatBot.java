@@ -25,11 +25,11 @@ public class SkypeChatBot extends Thread {
     startWebServer();
     boolean success = startSkypeEngine();
     if (!success) {
-      System.out.println("Unable to log in. Exiting.");
+      log.error("Unable to log in. Exiting.");
       System.exit(1);
     }
     else {
-      System.out.println("Logged in. All systems green.");
+      log.info("Logged in. All systems green.");
     }
   }
 
