@@ -23,7 +23,11 @@ public class SkypeChatBot extends Thread {
     initConfiguration();
     initCommands();
     startWebServer();
-    startSkypeEngine();
+    boolean success = startSkypeEngine();
+    if (!success) {
+      System.out.println("Unable to log in. Exiting.");
+      System.exit(1);
+    }
   }
 
   private static void writePID() throws IOException {
@@ -35,23 +39,25 @@ public class SkypeChatBot extends Thread {
     Plugins.reload();
   }
 
-  public static void startSkypeEngine() throws InterruptedException {
+  public static boolean startSkypeEngine() throws InterruptedException {
     try {
       SkypeKitRuntime.init().start();
       // sleep a bit to be sure
       Thread.sleep(3000);
     }
     catch (Exception e) {
-      log.error("I was unable to start runtime myself. I'll assume that it is started somehow manually", e);
+      log.info("I was unable to start runtime myself. I'll assume that it is started somehow manually");
     }
     SkypeEngine sEngine = new SkypeEngine();
+    sEngine.connect();
+    
     for (int i = 0; i < 3; i++) {
       if (sEngine.isConnected()) {
         break;
       }
-      sEngine.connect();
       Thread.sleep(5000);
     }
+    return sEngine.isConnected();
   }
 
   public static void startWebServer() {
