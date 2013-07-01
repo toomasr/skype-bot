@@ -35,7 +35,6 @@ public class SkypeChatBot extends Thread {
 
   private static void writePID() throws IOException {
     File f = new File("skype-bot.pid");
-    log.info("Writing PID to "+f.getAbsolutePath());
     //FileUtils.writeStringToFile(f, PIDUtil.getPID());
   }
 
@@ -54,7 +53,7 @@ public class SkypeChatBot extends Thread {
     }
     SkypeEngine sEngine = new SkypeEngine();
     sEngine.connect();
-    
+
     for (int i = 0; i < 3; i++) {
       if (sEngine.isConnected()) {
         break;
@@ -69,9 +68,11 @@ public class SkypeChatBot extends Thread {
   }
 
   private static void initConfiguration() {
+    String homeDir = System.getProperty("skypeBotHome", ".");
+
     Properties props = new Properties();
 
-    File propsFile = new File("personal.properties");
+    File propsFile = new File(new File(homeDir), "personal.properties");
     try {
       if (propsFile.exists()) {
         props.load(new FileReader(propsFile));
