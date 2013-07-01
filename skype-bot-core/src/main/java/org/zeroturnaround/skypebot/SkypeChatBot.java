@@ -98,7 +98,7 @@ public class SkypeChatBot extends Thread {
     // empty string here is important.
     Configuration.postApiKey = props.getProperty("postApiKey", "");
     if (Configuration.pemFile == null || Configuration.skypePassword == null || Configuration.skypeUsername == null) {
-      String msg = "Unable to find username, password or pemfile from project.properties nor persona.properties. Exiting";
+      String msg = "Unable to find username, password or pemfile from project.properties nor personal.properties. Exiting";
       log.error(msg);
       System.err.println(msg);
       System.exit(1);
