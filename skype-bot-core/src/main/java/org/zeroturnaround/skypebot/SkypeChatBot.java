@@ -35,6 +35,7 @@ public class SkypeChatBot extends Thread {
 
   private static void writePID() throws IOException {
     File f = new File("skype-bot.pid");
+    log.info("Writing PID to "+f.getAbsolutePath());
     FileUtils.writeStringToFile(f, PIDUtil.getPID());
   }
 
