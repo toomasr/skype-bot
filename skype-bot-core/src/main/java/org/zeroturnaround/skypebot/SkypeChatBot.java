@@ -28,6 +28,9 @@ public class SkypeChatBot extends Thread {
       System.out.println("Unable to log in. Exiting.");
       System.exit(1);
     }
+    else {
+      System.out.println("Logged in. All systems green.");
+    }
   }
 
   private static void writePID() throws IOException {

@@ -56,7 +56,7 @@ public class SkypeKitRuntime {
     }
     InputStream is = this.getClass().getResourceAsStream("/" + runtimeFileName);
     if(is == null) {
-      log.error("Cannot find runtime resource. It was not included here.");
+      log.info("Cannot find runtime resource. It was not included here.");
       throw new UnsupportedOperationException("Runtime is not included, cannot start it");
     }
     FileUtils.copyInputStreamToFile(is, file);
