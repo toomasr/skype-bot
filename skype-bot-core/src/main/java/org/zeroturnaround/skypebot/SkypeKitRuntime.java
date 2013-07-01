@@ -13,7 +13,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 public class SkypeKitRuntime {
-  private static final Logger log = LoggerFactory.getLogger(SkypeEventHandler.class);
+  private static final Logger log = LoggerFactory.getLogger(SkypeKitRuntime.class);
   private static final String runtimeFileName = "linux-x86-skypekit";
   private Executor executor;
   private File file;
@@ -31,7 +31,7 @@ public class SkypeKitRuntime {
           executor.execute(new CommandLine("./" + runtimeFileName));
         }
         catch (Exception e) {
-          log.error("Cannot run {}", runtimeFileName, e);
+          log.info("Cannot run {}", runtimeFileName);
         }
       }
     }).start();
