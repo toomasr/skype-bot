@@ -7,10 +7,8 @@ import java.io.IOException;
 import java.util.Properties;
 import java.util.concurrent.Executors;
 
-import org.apache.commons.io.FileUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.zeroturnaround.skypebot.pid.PIDUtil;
 import org.zeroturnaround.skypebot.plugins.Plugins;
 import org.zeroturnaround.skypebot.web.WebServer;
 
