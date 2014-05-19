@@ -15,7 +15,6 @@ import net.minidev.json.parser.ParseException;
 
 public class Weather extends NameCommand {
   private static double absoluteZero = -273.15;
-  private static String baseUrl = "http://openweathermap.org/data/2.1/weather/city/CITY_ID?type=json";
   private static String baseUrl = "http://api.openweathermap.org/data/2.5/weather?id=CITY_ID";
 
   private Map<String, String> cities = new HashMap<String, String>();
