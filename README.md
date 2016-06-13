@@ -1,3 +1,12 @@
+SkypeKit Discontinued
+======================
+
+This project is obsolete as Microsoft has turned off the SkypeKit. You can read more at [Skype Shuts Down SkypeKit and the Skype Developer Website](http://www.disruptivetelephony.com/2014/07/skype-shuts-down-skypekit-and-the-skype-developer-website.html). This is somewhat old news from Summer of 2014 but as there is still interest in the project now in 2016 I thought I'll post this for clarity!
+
+The project is hosted here just for informational purposes. You won't be able to get it to run now as there isn't a API service the SDK can talk to.
+
+R.I.P. SkypeKit
+
 Skype Bot
 =============
 
